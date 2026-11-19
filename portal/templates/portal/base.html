@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Portal da Dupla{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'portal/css/style.css' %}">
+</head>
+<body>
+
+    <header>
+        <h1>Portal da Dupla</h1>
+        <h2>José Kayky e Antonio Dias</h2>
+    </header>
+
+    <nav>
+        {% for item in menu %}
+        <a class="botao" href="{{ item.link }}"{% if item.eh_externo %} target="_blank" rel="noopener"{% endif %}>{{ item.titulo }}</a>
+        {% endfor %}
+    </nav>
+
+    <main>
+        {% block conteudo %}{% endblock %}
+    </main>
+
+    <footer>
+        <h2>José Kayky e Antonio Dias</h2>
+    </footer>
+
+</body>
+</html>
